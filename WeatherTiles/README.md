@@ -4,7 +4,7 @@ The images are not included obviously as we are not going to put up over 100k im
 some data files are included though.
 Also, I have my path in runit.sh as an example, change it depending on your path.
 
-Orignall from:
+Originally from:
 https://github.com/alanswx/WeatherTileExamples
 
 # WeatherTileExamples
