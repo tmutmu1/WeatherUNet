@@ -4,7 +4,7 @@ The images are not included obviously as we are not going to put up over 100k im
 some data files are included though
 Also, I have my path in runit.sh as an example, change it depending on your path
 
-## WeatherTileExamples
+# WeatherTileExamples
 Simple examples to make tilesets for your favorite mapping system.
 
 This is a simple set of examples that will show you how to take some of the newest, coolest NOAA products and turn them into tile sets for use in a web map mashup, or with WhirlyGlobe-Maply.
