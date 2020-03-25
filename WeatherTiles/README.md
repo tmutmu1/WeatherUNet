@@ -9,14 +9,14 @@ https://github.com/alanswx/WeatherTileExamples
 
 ## How I personally downloaded the data
 Steps:
-run sh buildit.it
-change path of runit
-run sh runit.it:
-	cd into Users, then your user, than wherever this project is located
-	run ./download_year_mrms.sh for a little bit
-	If process_year.sh is not exectuable run chmod +x process_year.sh
-	run ./process_year.sh
-go into jupyter lab and run crop_and_resize_copy.ipynb, make sure to change the path
+1. run sh buildit.it
+2. change path of runit
+3. run sh runit.it:
+4. cd into Users, then your user, than wherever this project is located
+5. run ./download_year_mrms.sh for a little bit
+6. If process_year.sh is not exectuable run chmod +x process_year.sh
+7. run ./process_year.sh
+8. Exit runit.sh and go into jupyter lab and run crop_and_resize_copy.ipynb, make sure to change the path
 
 
 # WeatherTileExamples
