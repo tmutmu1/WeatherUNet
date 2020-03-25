@@ -11,7 +11,7 @@ https://github.com/alanswx/WeatherTileExamples
 Steps:
 1. run sh buildit.it
 2. change path of runit
-3. run sh runit.it:
+3. run sh runit.it
 4. cd into Users, then your user, than wherever this project is located
 5. run ./download_year_mrms.sh for a little bit
 6. If process_year.sh is not exectuable run chmod +x process_year.sh
