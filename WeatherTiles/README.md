@@ -7,6 +7,18 @@ Also, I have my path in runit.sh as an example, change it depending on your path
 Originally from:
 https://github.com/alanswx/WeatherTileExamples
 
+## How I personally downloaded the data
+Steps:
+run sh buildit.it
+change path of runit
+run sh runit.it:
+	cd into Users, then your user, than wherever this project is located
+	run ./download_year_mrms.sh for a little bit
+	If process_year.sh is not exectuable run chmod +x process_year.sh
+	run ./process_year.sh
+go into jupyter lab and run crop_and_resize_copy.ipynb, make sure to change the path
+
+
 # WeatherTileExamples
 Simple examples to make tilesets for your favorite mapping system.
 
