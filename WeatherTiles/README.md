@@ -1,3 +1,27 @@
+<<<<<<< HEAD
+=======
+# Notes from Zac and Thomas
+This is the github directory we used from Alan in order to process, crop, and grab the images with some changes.
+The images are not included obviously as we are not going to put up over 100k images on github.
+some data files are included though.
+Also, I have my path in runit.sh as an example, change it depending on your path.
+
+Originally from:
+https://github.com/alanswx/WeatherTileExamples
+
+## How I personally downloaded the data
+Steps:
+1. run sh buildit.it
+2. change path of runit
+3. run sh runit.it
+4. cd into Users, then your user, than wherever this project is located
+5. run ./download_year_mrms.sh for a little bit
+6. If process_year.sh is not exectuable run chmod +x process_year.sh
+7. run ./process_year.sh
+8. Exit runit.sh and go into jupyter lab and run crop_and_resize_copy.ipynb, make sure to change the path
+
+
+>>>>>>> 3e9ffe8856e3890b27e8016258bf8709f3571fa5
 # WeatherTileExamples
 Simple examples to make tilesets for your favorite mapping system.
 
