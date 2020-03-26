@@ -1,12 +1,3 @@
-# Notes from Zac and Thomas
-This is the github directory we used from Alan in order to process, crop, and grab the images with some changes.
-The images are not included obviously as we are not going to put up over 100k images on github.
-some data files are included though.
-Also, I have my path in runit.sh as an example, change it depending on your path.
-
-Originally from:
-https://github.com/alanswx/WeatherTileExamples
-
 # WeatherTileExamples
 Simple examples to make tilesets for your favorite mapping system.
 

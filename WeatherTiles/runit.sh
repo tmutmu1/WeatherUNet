@@ -1,1 +1,1 @@
-sudo docker run --rm -it -v /Users/evansinger/:/Users/evansinger alanswx/noaatiles
+sudo docker run --rm -it -v /home/ubuntuos/:/home/ubuntuos alanswx/noaatiles

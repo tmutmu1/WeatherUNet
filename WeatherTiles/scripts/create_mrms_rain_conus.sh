@@ -32,15 +32,17 @@ echo "file:" $file
 #echo "file2:"
 #echo $file2
 echo "output:" $2
+CONUSINPUT="${file::-9}-conusinput.grib2"
+CONUSNEW="${file::-9}-conusnew.grib2"
 
 #
 # create a new grib that has both the precip flag (file2) and the seamless HSR on it (file)
 #
-zcat $file > conusinput.grib2 
+zcat $file > $CONUSINPUT
 
-wgrib2 conusinput.grib2  -set_var REFD -grib_out conusnew.grib2
+wgrib2 $CONUSINPUT -set_var REFD -grib_out $CONUSNEW
 
-gdaldem color-relief  conusnew.grib2  -alpha palettes/radar_pal3.txt -of PNG $2
+gdaldem color-relief $CONUSNEW -alpha palettes/radar_pal3.txt -of PNG $2
 
 #VRT conusnow.vrt
 
@@ -56,7 +58,7 @@ gdaldem color-relief  conusnew.grib2  -alpha palettes/radar_pal3.txt -of PNG $2
 #python ./gdal2tiles.py -r bilinear  now.vrt $2 
 #echo $1 > $2/source.txt
 
-rm conusinput.grib2
-rm conusnew.grib2
+rm $CONUSINPUT
+rm $CONUSNEW || echo "Failed to remove $COUNSNEW"
 #rm conusnow.vrt
-#rm conusnew.grib2.aux.xml
+rm $CONUSNEW.aux.xml ||  echo "Failed to remove $COUNSNEW.aux.xml"
