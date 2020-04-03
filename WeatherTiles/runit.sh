@@ -1,1 +1,1 @@
-sudo docker run --rm -it -v /Users/evansinger/:/Users/evansinger alanswx/noaatiles
+sudo docker run --rm -it -v /home/ubuntuos/WeatherUNet:/home/ubuntuos/WeatherUNet alanswx/noaatiles
