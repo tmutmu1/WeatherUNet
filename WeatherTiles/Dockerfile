@@ -10,7 +10,7 @@ ENV CPLUS_INCLUDE_PATH=/usr/include/gdal
 ENV C_INCLUDE_PATH=/usr/include/gdal
 
 RUN apt-get install -y python-pip python3-gdal python3-numpy curl
-
+RUN apt-get install -y parallel
 
 RUN curl -o wgrib2.tar.gz "ftp://ftp.cpc.ncep.noaa.gov/wd51we/wgrib2/wgrib2.tgz.v2.0.2"
 #RUN curl -o wgrib2.tar.gz "ftp://ftp.cpc.ncep.noaa.gov/wd51we/wgrib2/wgrib2.tgz.v2.0.8"
