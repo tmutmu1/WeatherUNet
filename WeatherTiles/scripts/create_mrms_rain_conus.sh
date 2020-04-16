@@ -37,7 +37,7 @@ conusnew="${1}_conusnew.grib2"
 #
 # create a new grib that has both the precip flag (file2) and the seamless HSR on it (file)
 #
-zcat $file > $conusinput
+zcat $file > $conusinput || { rm $file; echo "${file} was corrupted so it has been deleted."; }
 
 wgrib2 $conusinput -set_var REFD -grib_out $conusnew
 gdaldem color-relief "${conusnew}" -alpha palettes/radar_pal3.txt -of PNG "${2}"
