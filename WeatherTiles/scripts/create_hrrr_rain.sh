@@ -54,6 +54,7 @@ gdaldem color-relief "${conusnew}" -alpha palettes/radar_pal3.txt -of PNG "${2}"
 
 #python ./gdal2tiles.py -r bilinear  now.vrt $2 
 #echo $1 > $2/source.txt
+grep -qxF "$file" hrrr_processed_images.txt || echo "$file" >> hrrr_processed_images.txt
 
 rm "$conusnew"
 #rm conusnow.vrt

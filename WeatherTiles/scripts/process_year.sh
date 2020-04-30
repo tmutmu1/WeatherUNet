@@ -3,7 +3,7 @@
 mkdir -p data
 mkdir -p output
 mkdir -p output/conus/
-numjobs=2
+numjobs=8
 
 runprocess() {
     FILE=$1
@@ -16,4 +16,4 @@ runprocess() {
 }
 export -f runprocess
 
-find -type f -wholename './mtarchive.geol.iastate.edu/*/*/*/mrms/ncep/SeamlessHSR/*.grib2.gz' | sort -g | parallel -j $numjobs runprocess
+find mtarchive.geol.iastate.edu/*/*/*/mrms/ncep/SeamlessHSR/ -name "*.grib2.gz" | sort -g | parallel -j $numjobs runprocess
