@@ -38,8 +38,9 @@ conusnew="${1}_conusnew.grib2"
 #
 #zcat $file > $conusinput || { rm $file; echo "${file} was corrupted so it has been deleted."; }
 
-wgrib2 "${1}" -set_var REFC -grib_out $conusnew > /dev/null 2>&1
-gdaldem color-relief "${conusnew}" -alpha palettes/radar_pal3.txt -of PNG "${2}" 
+wgrib2 "${1}" -match "REFC" -grib_out $conusnew > /dev/null 2>&1
+gdaldem color-relief "${conusnew}" -alpha palettes/radar_pal3.txt -of PNG "${2}" || { rm $file; echo "${file} was corrupted so it has been deleted."; }
+
 
 #VRT conusnow.vrt
 

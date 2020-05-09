@@ -12,6 +12,9 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 if not os.path.isfile(str(dir_path)+"/hrrr_processed_images.txt"):
 		f= open("hrrr_processed_images.txt","w+")
 		f.close()
+if not os.path.isfile(str(dir_path)+"/hrrr_processed_images_combined.txt"):
+		f= open("hrrr_processed_images_combined.txt","w+")
+		f.close()
 try:
 	os.mkdir(str(dir_path)+"/hrrr/"+str(fDataset))
 except:
@@ -32,8 +35,8 @@ for i in range(15000):
 		os.mkdir(str(dir_path)+"/hrrr/"+str(fDataset)+"/"+date.strftime("%Y")+"/"+date.strftime("%m")+"/"+date.strftime("%d"))
 	except:
 		pass
-	with  open('hrrr_processed_images.txt') as f:
-		if not os.path.isfile(str(directory +"/hrrr.t"+date.strftime("%H")+"z.wrfsfc"+str(fDataset)+".grib2")) and not str("hrrr/"+str(fDataset)+date.strftime("/%Y/%m/%d/")+"hrrr.t"+date.strftime("%H")+"z.wrfsfc"+str(fDataset)+".grib2") in f.read():
+	with  open('hrrr_processed_images.txt') as f1, open('hrrr_processed_images_combined.txt') as f2:
+		if not os.path.isfile(str(directory +"/hrrr.t"+date.strftime("%H")+"z.wrfsfc"+str(fDataset)+".grib2")) and (not str("hrrr/"+str(fDataset)+date.strftime("/%Y/%m/%d/")+"hrrr.t"+date.strftime("%H")+"z.wrfsfc"+str(fDataset)+".grib2") in f1.read() or not str("hrrr/"+str(fDataset)+date.strftime("/%Y/%m/%d/")+"hrrr.t"+date.strftime("%H")+"z.wrfsfc"+str(fDataset)+".grib2") in f2.read()):
 			try:
 				wget.download(url, out=directory)
 			except:
