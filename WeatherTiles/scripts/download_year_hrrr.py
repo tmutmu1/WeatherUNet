@@ -5,6 +5,8 @@ import time
 
 # fDataset='f00'
 fDataset='f01'
+# hrrrLogFile='hrrr_processed_images.txt' # for hrrr
+hrrrLogFile='hrrr_processed_images_combined.txt' # for combined
 date = datetime.datetime(2018, 7, 1, 0)
 
 timeInterval = datetime.timedelta(hours=1)
@@ -35,8 +37,8 @@ for i in range(15000):
 		os.mkdir(str(dir_path)+"/hrrr/"+str(fDataset)+"/"+date.strftime("%Y")+"/"+date.strftime("%m")+"/"+date.strftime("%d"))
 	except:
 		pass
-	with  open('hrrr_processed_images.txt') as f1, open('hrrr_processed_images_combined.txt') as f2:
-		if not os.path.isfile(str(directory +"/hrrr.t"+date.strftime("%H")+"z.wrfsfc"+str(fDataset)+".grib2")) and (not str("hrrr/"+str(fDataset)+date.strftime("/%Y/%m/%d/")+"hrrr.t"+date.strftime("%H")+"z.wrfsfc"+str(fDataset)+".grib2") in f1.read() or not str("hrrr/"+str(fDataset)+date.strftime("/%Y/%m/%d/")+"hrrr.t"+date.strftime("%H")+"z.wrfsfc"+str(fDataset)+".grib2") in f2.read()):
+	with  open(hrrrLogFile) as f:
+		if not os.path.isfile(str(directory +"/hrrr.t"+date.strftime("%H")+"z.wrfsfc"+str(fDataset)+".grib2")) and not str("hrrr/"+str(fDataset)+date.strftime("/%Y/%m/%d/")+"hrrr.t"+date.strftime("%H")+"z.wrfsfc"+str(fDataset)+".grib2") in f.read():
 			try:
 				wget.download(url, out=directory)
 			except:
