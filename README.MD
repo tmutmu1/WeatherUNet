@@ -17,5 +17,3 @@ Steps to clone and use WeatherUNet:
 12. Change paths, _dataset, _channels, train and val sizes, and _usingColab. Then run all cells of pytorch_resnet18_unet notebook
     - eg. change the ubuntuos/etc... to your own repository where the data is located and etc...
 
-
-Rights of this code are open sourced
