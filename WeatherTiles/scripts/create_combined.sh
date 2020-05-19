@@ -60,7 +60,7 @@ if [ $dataType = "mrms" ] || [ $dataType = "hrrr" ]; then
 fi
 
 
-if [ $dataType = "hrrr" ]; then
+if [ $dataType = "hrrr" ] || [ $dataType = "hrrr_prs" ]; then
 	grep -qxF "$file" hrrr_processed_images_combined.txt || echo "$file" >> hrrr_processed_images_combined.txt
 fi
 
