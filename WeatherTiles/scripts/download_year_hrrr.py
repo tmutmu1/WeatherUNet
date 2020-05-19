@@ -9,8 +9,8 @@ fDataset='f01'
 field = "sfc" # reflectivity
 # field = "prs" # pressure files for combined
 
-hrrrLogFile='hrrr_processed_images.txt' # for hrrr
-# hrrrLogFile='hrrr_processed_images_combined.txt' # for combined
+# hrrrLogFile='hrrr_processed_images.txt' # for hrrr
+hrrrLogFile='hrrr_processed_images_combined.txt' # for combined
 
 if field == "prs":
 	fDataset='f00'
@@ -52,10 +52,10 @@ for i in range(15000):
 		os.mkdir(str(dir_path)+"/"+str(dataType)+"/"+str(fDataset)+"/"+date.strftime("%Y")+"/"+date.strftime("%m")+"/"+date.strftime("%d"))
 	except:
 		pass
-	with  open(hrrrLogFile) as f:
-		if not os.path.isfile(str(directory +"/hrrr.t"+date.strftime("%H")+"z.wrf"+str(field)+str(fDataset)+".grib2")) and not str(str(dataType)+"/"+str(fDataset)+date.strftime("/%Y/%m/%d/")+"hrrr.t"+date.strftime("%H")+"z.wrf"+str(field)+str(fDataset)+".grib2") in f.read():
-			try:
-				wget.download(url, out=directory)
-			except:
-				print(url, "did not download!")
+	f = open(hrrrLogFile, "r")
+	if not os.path.isfile(str(directory +"/hrrr.t"+date.strftime("%H")+"z.wrf"+str(field)+str(fDataset)+".grib2")) and not str(str(dataType)+"/"+str(fDataset)+date.strftime("/%Y/%m/%d/")+"hrrr.t"+date.strftime("%H")+"z.wrf"+str(field)+str(fDataset)+".grib2") in f.read():
+		try:
+			wget.download(url, out=directory)
+		except:
+			print(url, "did not download!")
 	date += timeInterval
