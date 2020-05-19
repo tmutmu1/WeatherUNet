@@ -49,7 +49,6 @@ if [ $dataType = "hrrr_temperature" ]; then
 	conusinput="`echo ${file} | cut -f -5 -d /`/CONUSINPUT_`echo ${file} | cut -f 6 -d /`"
 	conustranslated="`echo ${file} | cut -f -5 -d /`/CONUSTRANSLATED_`echo ${file} | cut -f 6 -d /`"
 	wgrib2 "${file}" -match "TMP" -match "500 mb" -grib_out $conusnew || { rm $file; echo "${file} was corrupted so it has been deleted."; exit 1; }
-	wgrib2 $conusnew -V
 	gdal_translate -projwin_srs "EPSG:4326" -projwin -90.769043 37.527154 -88 34 -tr 1000 1000 "${conusnew}" "${conusinput}"
 	gdal_translate -srcwin 0 0 256 256 "${conusinput}" "${conustranslated}"
 	gdaldem color-relief "${conustranslated}" -alpha palettes/radar_pal_temperature.txt -of PNG "${2}"
