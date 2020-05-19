@@ -59,6 +59,6 @@ runprocesshrrrprs() {
 }
 export -f runprocesshrrrprs
 
-# find mtarchive.geol.iastate.edu/*/*/*/mrms/ncep/SeamlessHSR/ -name "*.grib2.gz" | sort -g | parallel -j $numjobs runprocessmrms
-# find hrrr/f01/*/*/*/ -name "*.grib2" | sort -g | parallel -j $numjobs runprocesshrrr
+find mtarchive.geol.iastate.edu/*/*/*/mrms/ncep/SeamlessHSR/ -name "*.grib2.gz" | sort -g | parallel -j $numjobs runprocessmrms
+find hrrr/f01/*/*/*/ -name "*.grib2" | sort -g | parallel -j $numjobs runprocesshrrr
 find hrrr_prs/f00/*/*/*/ -name "*.grib2" | sort -g | parallel -j $numjobs runprocesshrrrprs
