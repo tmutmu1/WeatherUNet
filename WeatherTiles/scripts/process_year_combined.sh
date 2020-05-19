@@ -53,7 +53,7 @@ runprocesshrrrprs() {
        $THECMD
     fi
     if [ ! -f  output/combined/hrrr_temperature/CONUS_$DATE.png  ]; then
-       THECMD="./create_ombined.sh  $FILE output/combined/hrrr_temperature/CONUS_$DATE.png hrrr_temperature" 
+       THECMD="./create_combined.sh  $FILE output/combined/hrrr_temperature/CONUS_$DATE.png hrrr_temperature" 
        $THECMD
     fi 
 }
