@@ -23,10 +23,9 @@ date = datetime.datetime(2018, 7, 1, 0)
 
 timeInterval = datetime.timedelta(hours=1)
 dir_path = os.path.dirname(os.path.realpath(__file__))
-if not os.path.isfile(str(dir_path)+str(hrrrLogFile)):
-		f= open(str(hrrrLogFile),"w+")
+if not os.path.isfile(str(dir_path)+"/"+str(hrrrLogFile)):
+		f=open(str(hrrrLogFile),"w+")
 		f.close()
-
 try:
 	os.mkdir(str(dir_path)+"/"+str(dataType))
 except:
@@ -56,6 +55,10 @@ for i in range(15000):
 	if not os.path.isfile(str(directory +"/hrrr.t"+date.strftime("%H")+"z.wrf"+str(field)+str(fDataset)+".grib2")) and not str(str(dataType)+"/"+str(fDataset)+date.strftime("/%Y/%m/%d/")+"hrrr.t"+date.strftime("%H")+"z.wrf"+str(field)+str(fDataset)+".grib2") in f.read():
 		try:
 			wget.download(url, out=directory)
+		except KeyboardInterrupt:
+			f.close()
+			exit(-1)
 		except:
 			print(url, "did not download!")
+	f.close()
 	date += timeInterval
